@@ -9,10 +9,12 @@ DATABASE_URL = os.getenv("DATABASE_URL")
 
 
 def conectar():
-    try:
+
         connection = psycopg2.connect(DATABASE_URL)
         return connection
+    # try:
 
-    except psycopg2.Error as erro:
-        print(f"Erro ao conectar ao banco de dados: {erro}")
-        return None
+        
+    # except psycopg2.Error as erro:
+    #     erro = print(f"Erro ao conectar ao banco de dados: {erro}")
+    #     return erro

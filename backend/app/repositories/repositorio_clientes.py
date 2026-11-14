@@ -1,5 +1,35 @@
 
-from database import conectar
+from backend.app.database import conectar
+
+
+#função de teste de conexão com o banco de dados
+
+# def mostra_cliente():
+#     connection = conectar()
+
+#     print(connection)
+#     if connection is None:
+#         return None
+
+#     cursor = None
+
+#     try:
+#         cursor = connection.cursor()
+#         cursor.execute("""SELECT * FROM usuarios""")
+
+#         lista = cursor.fetchall()
+
+#         return lista
+
+#     except Exception as erro:
+#         connection.rollback()
+#         print(f"Erro ai: {erro}")
+#         return None
+    
+# resultado = mostra_cliente()
+
+# print(resultado)
+
 
 
 def cria_cliente(nome, senha_hash, email, telefone):
@@ -118,7 +148,7 @@ def adiciona_carrinho(id_carrinho, id_produto, quantidade_produto, preco_unitari
     try:
         cursor = connection.cursor()
         cursor.execute("""
-        INSERT INTO item_carrinho(id_carrinho, id_produto, quantidade, preco_unitario)
+        INSERT INTO item_carrinho(id_carrinho, id_prod, quantidade, preco_unitario)
         VALUES (%s, %s, %s, %s)
         RETURNING id_ic;
         """,(id_carrinho, id_produto, quantidade_produto, preco_unitario))
@@ -126,4 +156,75 @@ def adiciona_carrinho(id_carrinho, id_produto, quantidade_produto, preco_unitari
         id_ic = cursor.fetchone()[0]
         connection.commit()
         return id_ic
+
+    except Exception as erro:
+        connection.rollback()
+        erro = print(f"Erro ao adicionar itens ao carrinho: {erro}")
+        return erro
+
+
+def remover_ic(id_carrinho, id_produto):
+    connection = conectar()
+
+    if connection is None:
+        return None
+
+    cursor = None
+
+    try: 
+        cursor = connection.cursor()
+        cursor.execute("""
+        DELETE FROM item_carrinho
+        WHERE id_carrinho = %s 
+        AND id_prod = %s;
+        """,(id_carrinho, id_produto))
+
+        connection.commit()
+
+    except Exception as erro:
+        connection.rollback()
+        erro = print(f"Erro ao remover itens do carrinho: {erro}")
+        return erro
+
+
+def realiza_pedido():
+    connection = conectar()
+
+    if connection is None:
+        return None
+
+    cursor = None
+
+    try: 
+        cursor = connection.cursor()
+        cursor.execute("""INSERT INTO pedidos""")
+
+    
+
+
+def desativar_conta(id_usuario):
+    connection = conectar()
+
+    if connection is None:
+        return None
+
+    cursor = None
+
+    try: 
+        cursor = connection.cursor()
+        cursor.execute("""
+        UPDATE usuarios
+        SET status_conta = 'INATIVO' 
+        WHERE id_usuario = %s;
+        """, (id_usuario))
+
+        connection.commit()
+
+    except Exception as erro:
+        connection.rollback()
+        erro = print(f"Erro ao realizar essa ação: {erro} ")
+        return erro
+
+
+
 
