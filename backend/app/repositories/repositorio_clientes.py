@@ -1,37 +1,7 @@
 
 from backend.app.database import conectar
 
-
-#função de teste de conexão com o banco de dados
-
-# def mostra_cliente():
-#     connection = conectar()
-
-#     print(connection)
-#     if connection is None:
-#         return None
-
-#     cursor = None
-
-#     try:
-#         cursor = connection.cursor()
-#         cursor.execute("""SELECT * FROM usuarios""")
-
-#         lista = cursor.fetchall()
-
-#         return lista
-
-#     except Exception as erro:
-#         connection.rollback()
-#         print(f"Erro ai: {erro}")
-#         return None
-    
-# resultado = mostra_cliente()
-
-# print(resultado)
-
-
-
+# Relacionado a criação de usuário e endereço do cliente, junto a funçõoes de atualização e remoção de usuário, endereço e cliente.
 def cria_cliente(nome, senha_hash, email, telefone):
     connection = conectar()
 
@@ -67,8 +37,8 @@ def cria_cliente(nome, senha_hash, email, telefone):
 
     except Exception as erro:
         connection.rollback()
-        print(f"Erro ao cadastrar usuário: {erro}")
-        return None
+        erro = print(f"Erro ao cadastrar usuário: {erro}")
+        return erro
 
     finally:
         if cursor:
@@ -120,7 +90,7 @@ def carrinho_cliente(id_carrinho):
         cursor.execute("""
             SELECT *
             FROM item_carrinho
-            WHERE id_carrinho = %s
+            WHERE id_carrinho = %s;
         """, (id_carrinho,))
 
         itens = cursor.fetchall()
@@ -137,7 +107,7 @@ def carrinho_cliente(id_carrinho):
         connection.close()
 
 
-def adiciona_carrinho(id_carrinho, id_produto, quantidade_produto, preco_unitario):
+def adiciona_ic(id_carrinho, id_produto, quantidade_produto, preco_unitario):
     connection = conectar()
 
     if connection is None:
@@ -161,6 +131,11 @@ def adiciona_carrinho(id_carrinho, id_produto, quantidade_produto, preco_unitari
         connection.rollback()
         erro = print(f"Erro ao adicionar itens ao carrinho: {erro}")
         return erro
+
+    finally:
+        if cursor:
+            cursor.close()
+        connection.close()
 
 
 def remover_ic(id_carrinho, id_produto):
@@ -186,8 +161,13 @@ def remover_ic(id_carrinho, id_produto):
         erro = print(f"Erro ao remover itens do carrinho: {erro}")
         return erro
 
+    finally:
+        if cursor:
+            cursor.close()
+        connection.close()
 
-def realiza_pedido():
+
+def realiza_pedido(id_usuario, id_endereco, id_carrinho, id_loja, precoTotal, id_produto, quantidade, preco_unitario):
     connection = conectar()
 
     if connection is None:
@@ -197,9 +177,109 @@ def realiza_pedido():
 
     try: 
         cursor = connection.cursor()
-        cursor.execute("""INSERT INTO pedidos""")
+        cursor.execute("""
+        INSERT INTO pedidos(id_usuario, id_endereco, id_carrinho, id_loja, preco_total)
+        VALUES (%s, %s, %s, %s, %s)
+        RETURNING id_pedido;
+        """,(id_usuario, id_endereco, id_carrinho, id_loja, precoTotal))
 
-    
+        id_pedido = cursor.fetchone()[0]
+
+        cursor.execute("""
+            SELECT id_produto, quantidade, preco_unitario
+            FROM item_carrinho
+            WHERE id_carrinho = %s;
+        """, (id_carrinho,))
+
+        itens = cursor.fetchall()        
+
+        for item in itens:
+            id_produto, quantidade, preco_unitario = item
+
+            cursor.execute("""
+                INSERT INTO item_pedido
+                (id_pedido, id_produto, quantidade, preco_unitario)
+                VALUES (%s, %s, %s, %s)
+                RETURNING id_item;
+            """, (id_pedido, id_produto, quantidade, preco_unitario))
+
+        id_item = cursor.fetchall()
+
+        connection.commit()
+        return id_pedido
+
+    except Exception as erro:
+        connection.rollback()
+        erro = print(f"Erro finalizar pedido: {erro}")
+        return erro
+
+    finally:
+        if cursor:
+            cursor.close()
+        connection.close()
+
+
+def cancela_pedido(id_pedido):
+    connection = conectar()
+
+    if connection is None:
+        return None
+
+    cursor = None
+
+    try: 
+        cursor = connection.cursor()
+        cursor.execute("""
+        UPDATE pedidos
+        SET status_pedido = 'CANCELADO'
+        WHERE id_pedido = %s;
+        """, (id_pedido))
+
+        connection.commit()
+
+    except Exception as erro:
+        connection.rollback()
+        erro = print(f"Erro ao cancelar o pedido: {erro}")
+        return erro
+
+    finally:
+        if cursor:
+            cursor.close()
+        connection.close()
+
+
+def atualiza_endereco(id_endereco, id_usuario, nome_rua, cidade, cep, estado, complemento):
+    connection = conectar()
+
+    if connection is None:
+        return None
+
+    cursor = None
+
+    try: 
+        cursor = connection.cursor()
+
+        cursor.execute("""
+        UPDATE endereco
+        SET nome_rua = %s,
+        cidade = %s,
+        cep = %s,
+        estado = %s,
+        complemento = %s,
+        WHERE id_endereco = %s,
+        AND id_usuario = %s;
+        """,(id_endereco, id_usuario, nome_rua, cidade, cep, estado, complemento))
+
+
+    except Exception as erro:
+        connection.rollback()
+        erro = print(f"Erro ao realizar essa ação: {erro}")
+        return erro
+
+    finally:
+        if cursor:
+            cursor.close()
+        connection.close()
 
 
 def desativar_conta(id_usuario):
@@ -225,6 +305,38 @@ def desativar_conta(id_usuario):
         erro = print(f"Erro ao realizar essa ação: {erro} ")
         return erro
 
+    finally:
+        if cursor:
+            cursor.close()
+        connection.close()
 
 
+
+#função de teste de conexão com o banco de dados
+
+# def mostra_cliente():
+#     connection = conectar()
+
+#     print(connection)
+#     if connection is None:
+#         return None
+
+#     cursor = None
+
+#     try:
+#         cursor = connection.cursor()
+#         cursor.execute("""SELECT * FROM usuarios""")
+
+#         lista = cursor.fetchall()
+
+#         return lista
+
+#     except Exception as erro:
+#         connection.rollback()
+#         print(f"Erro ai: {erro}")
+#         return None
+    
+# resultado = mostra_cliente()
+
+# print(resultado)
 
