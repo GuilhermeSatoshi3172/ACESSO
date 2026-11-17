@@ -23,3 +23,7 @@ serão sinalizados.
 
 Este README descreve apenas a camada de repositories; endpoints e regras de
 negócio serão documentados quando estiverem implementados.
+
+
+
+teste de ruleset
