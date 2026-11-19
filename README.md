@@ -5,7 +5,8 @@ Backend do projeto ACESSO.
 ## Estrutura atual
 
 - `backend/app/repositories/`: acesso e operações com o banco de dados.
-- Services e routes: em desenvolvimento por outro colaborador.
+- `backend/app/services/`: validação básica e regras de negócio que chamam os repositories.
+- Routes: ainda não implementadas.
 
 ## Configuração
 
@@ -15,9 +16,15 @@ Backend do projeto ACESSO.
 
 ## Integração
 
-A camada de services deve chamar as funções dos repositories. Antes da integração,
-alinhe com os responsáveis os parâmetros, os valores retornados e como os erros
-serão sinalizados.
+Os services usam os parâmetros definidos nos repositories e retornam seus resultados.
+Configure `DATABASE_URL` com a connection string PostgreSQL do Supabase. O arquivo
+`.env` não deve ser preenchido com credenciais reais no controle de versão.
+
+Antes de publicar endpoints, revise o esquema real do Supabase e padronize o
+tratamento de erros e os retornos dos repositories. No momento, alguns repositories
+convertem erros em `None` e há divergências nos nomes de tabelas/colunas, que podem
+impedir operações específicas. O total do pedido também deve ser calculado no
+backend, nunca aceito diretamente do navegador.
 
 ## Status
 
