@@ -1,0 +1,259 @@
+:root {
+  --primary-orange: #ff4500;
+  --primary-hover: #e03e00;
+  --dark-text: #1e2421;
+  --bg-light: #f5f6f4;
+  --white: #ffffff;
+  --border-color: #eaedf0;
+  --text-muted: #6b7280;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+body {
+  background-color: var(--bg-light);
+  color: var(--dark-text);
+  padding-bottom: 40px;
+}
+
+/* TOP BAR (CABEÇALHO COM FOTO DE PERFIL) */
+.top-bar {
+  background-color: var(--white);
+  border-bottom: 1px solid var(--border-color);
+  padding: 15px 0;
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 24px;
+}
+
+.logo-icon {
+  color: var(--primary-orange);
+}
+
+.brand-orange {
+  color: var(--primary-orange);
+  font-weight: 800;
+}
+
+.store-user {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+}
+
+.profile-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #fff0eb;
+  color: var(--primary-orange);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  border: 1px solid #ffdcd1;
+}
+
+.btn-logout {
+  background: var(--white);
+  border: 1px solid var(--border-color);
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: var(--text-muted);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.btn-logout:hover {
+  background-color: #fef2f2;
+  color: #ef4444;
+}
+
+/* MAIN CONTAINER */
+.main-container {
+  max-width: 1200px;
+  margin: 25px auto 0;
+  padding: 0 20px;
+}
+
+.breadcrumb {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.header-titles h1 {
+  font-size: 28px;
+  margin: 5px 0 2px;
+}
+
+.header-titles p {
+  color: var(--text-muted);
+  font-size: 14px;
+  margin-bottom: 25px;
+}
+
+/* CARDS DE NAVEGAÇÃO SUPERIORES (MESMO FORMATO HOMEPAGE, 3 BOTÕES) */
+.category-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 30px;
+}
+
+.cat-card {
+  background: var(--white);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  cursor: pointer;
+  font-weight: 700;
+  transition: all 0.2s ease;
+}
+
+.cat-card:hover, .cat-card.active {
+  border-color: var(--primary-orange);
+  box-shadow: 0 4px 12px rgba(255, 69, 0, 0.08);
+}
+
+.cat-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  background-color: #fff0eb;
+  color: var(--primary-orange);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+
+/* TÍTULO DA SEÇÃO */
+.section-title-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.count-badge {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* GRID DE CARDS DE PEDIDOS DETALHADOS (Estrutura idêntica à vitrine da homepage) */
+.orders-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.order-card {
+  background: var(--white);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+}
+
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.order-id {
+  font-weight: 800;
+  font-size: 15px;
+}
+
+.status-badge {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.status-pendente { background-color: #fff7ed; color: #c2410c; }
+.status-separacao { background-color: #eff6ff; color: #1d4ed8; }
+.status-entregue { background-color: #f0fdf4; color: #15803d; }
+
+.client-info {
+  margin-bottom: 15px;
+}
+
+.client-name {
+  font-weight: 700;
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+
+.order-date, .order-items {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.order-price-box {
+  border-top: 1px dashed var(--border-color);
+  padding-top: 12px;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.price-label {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.price-value {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--dark-text);
+}
+
+.btn-detail {
+  margin-top: 15px;
+  background-color: var(--primary-orange);
+  color: var(--white);
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+  width: 100%;
+}
+
+.btn-detail:hover {
+  background-color: var(--primary-hover);
+}
