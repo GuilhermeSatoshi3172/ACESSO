@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Obraê - Painel do Lojista</title>
+  <link rel="stylesheet" href="admin.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- 1. CABEÇALHO SUPERIOR (Igual ao topo admin com foto do perfil) -->
+  <header class="top-bar">
+    <div class="header-container">
+      <div class="logo">
+        <span class="logo-icon"><i class="fa-solid fa-house-chimney-window"></i></span>
+        <span class="logo-text"><span class="brand-orange">obraê</span> <strong>Admin</strong></span>
+      </div>
+
+      <div class="store-user">
+        <!-- Ícone/foto de perfil adicionado -->
+        <div class="profile-avatar">
+          <i class="fa-solid fa-user"></i>
+        </div>
+        <span class="store-name">Loja: <strong>Materiais de Construção Silva</strong></span>
+        <button class="btn-logout" id="logoutBtn">
+          <i class="fa-solid fa-right-from-bracket"></i> Sair
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-container">
+    
+    <!-- SUB-CABEÇALHO DA HOMEPAGE -->
+    <div class="page-header">
+      <div class="header-titles">
+        <span class="breadcrumb">Início › Painel do Lojista</span>
+        <h1>Gerenciamento da Loja</h1>
+        <p>Acompanhe estoque, pedidos recebidos e movimentação de materiais.</p>
+      </div>
+    </div>
+
+    <!-- 2. BOTÕES SUPERIORES (Copiados da homepage, reduzidos para 3 itens) -->
+    <section class="category-cards">
+      <div class="cat-card active" data-filter="todos">
+        <div class="cat-icon"><i class="fa-solid fa-boxes-stacked"></i></div>
+        <span>Estoque</span>
+      </div>
+      <div class="cat-card" data-filter="pedidos">
+        <div class="cat-icon"><i class="fa-solid fa-receipt"></i></div>
+        <span>Pedidos</span>
+      </div>
+      <div class="cat-card" data-filter="materiais">
+        <div class="cat-icon"><i class="fa-solid fa-cubes"></i></div>
+        <span>Materiais</span>
+      </div>
+    </section>
+
+    <!-- TÍTULO DA SEÇÃO INFERIOR -->
+    <div class="section-title-bar">
+      <h2>Pedidos Recebidos</h2>
+      <span class="count-badge" id="orderCount">0 pedidos encontrados</span>
+    </div>
+
+    <!-- 3. PARTE INFERIOR: CARDS DE PEDIDOS DETALHADOS NO MESMO GRID DOS PRODUTOS DA HOMEPAGE -->
+    <section class="orders-grid" id="ordersGrid">
+      <!-- Os cards de pedidos serão renderizados aqui pelo JS -->
+    </section>
+
+  </main>
+
+</body>
+<script src="admin.js"></script>
+</html>
