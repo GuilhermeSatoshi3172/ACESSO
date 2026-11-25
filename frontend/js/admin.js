@@ -5,10 +5,10 @@
 
 // 1. Dados da aba "Estoque"
 const dadosEstoque = [
-  { id: "#EST-101", nome: "Cimento Votoran 50kg", categoria: "Materiais", qtd: 150, preco: 32.90, status: "Em Estoque" },
-  { id: "#EST-102", nome: "Tinta Acrílica Suvinil 18L", categoria: "Pintura", qtd: 24, preco: 329.90, status: "Estoque Baixo" },
-  { id: "#EST-103", nome: "Furadeira DeWalt 650W", categoria: "Ferramentas", qtd: 12, preco: 279.90, status: "Em Estoque" },
-  { id: "#EST-104", nome: "Torneira Docol Cozinha", categoria: "Hidráulica", qtd: 35, preco: 119.90, status: "Em Estoque" }
+  { id: "#MAT-05", nome: "Cimento Votoran 50kg", categoria: "Materiais", qtd: 150, preco: 32.90, status: "Em Estoque" },
+  { id: "#MAT-12", nome: "Tinta Acrílica Suvinil 18L", categoria: "Pintura", qtd: 24, preco: 329.90, status: "Estoque Baixo" },
+  { id: "#MAT-07  ", nome: "Furadeira DeWalt 650W", categoria: "Ferramentas", qtd: 12, preco: 279.90, status: "Em Estoque" },
+  { id: "#MAT-09", nome: "Torneira Docol Cozinha", categoria: "Hidráulica", qtd: 35, preco: 119.90, status: "Em Estoque" }
 ];
 
 // 2. Dados da aba "Pedidos" (Formato detalhado que você aprovou)
