@@ -1,0 +1,18 @@
+:root {
+  --primary-orange: #ff4500;
+  --primary-hover: #e03e00;
+  --dark-text: #1e2421;
+  --bg-light: #f5f6f4;
+  --white: #ffffff;
+  --border-color: #eaedf0;
+  --text-muted: #6b7280;
+  --border-color: border: 1px solid var(var(--primary-orange));
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
