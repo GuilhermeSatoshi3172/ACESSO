@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Obraê - Painel do Lojista</title>
-  <link rel="stylesheet" href="admin.css">
+  <link rel="stylesheet" href="../css/admin.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
@@ -43,15 +43,15 @@
 
     <!-- 2. BOTÕES SUPERIORES (Copiados da homepage, reduzidos para 3 itens) -->
     <section class="category-cards">
-      <div class="cat-card active" data-filter="todos">
+      <div class="cat-card" data-tab="estoque">
         <div class="cat-icon"><i class="fa-solid fa-boxes-stacked"></i></div>
         <span>Estoque</span>
       </div>
-      <div class="cat-card" data-filter="pedidos">
+      <div class="cat-card active" data-tab="pedidos">
         <div class="cat-icon"><i class="fa-solid fa-receipt"></i></div>
         <span>Pedidos</span>
       </div>
-      <div class="cat-card" data-filter="materiais">
+      <div class="cat-card" data-tab="materiais">
         <div class="cat-icon"><i class="fa-solid fa-cubes"></i></div>
         <span>Materiais</span>
       </div>
@@ -59,7 +59,7 @@
 
     <!-- TÍTULO DA SEÇÃO INFERIOR -->
     <div class="section-title-bar">
-      <h2>Pedidos Recebidos</h2>
+      <h2 id="sectionTitle">Pedidos Recebidos</h2>
       <span class="count-badge" id="orderCount">0 pedidos encontrados</span>
     </div>
 
@@ -71,5 +71,5 @@
   </main>
 
 </body>
-<script src="admin.js"></script>
+<script src="../js/admin.js"></script>
 </html>

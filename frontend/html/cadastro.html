@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#202b26">
+  <meta name="description" content="Crie sua conta de cliente Obraê e encontre tudo para sua obra.">
+  <title>Criar conta — Obraê</title>
+  <link rel="stylesheet" href="../css/auth.css">
+  <script src="../js/auth.js" defer></script>
+</head>
+<body>
+  <main class="auth-layout">
+    <aside class="brand-panel">
+      <a class="brand" href="index.html" aria-label="Obraê — página inicial">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="m3.5 10 8.5-7 8.5 7v10.5h-17V10Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+            <path d="M9 20.5v-7h6v7M2 10.5l10-8 10 8" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <span>obraê</span>
+      </a>
+
+      <div class="brand-copy">
+        <span class="eyebrow"><span class="eyebrow-dot"></span> Sua obra começa aqui</span>
+        <h1>Um bom projeto<br>começa com boas escolhas.</h1>
+        <p>Crie sua conta para descobrir materiais, acompanhar pedidos e deixar sua obra do seu jeito.</p>
+      </div>
+
+      <div class="artwork" aria-hidden="true">
+        <div class="art-sun"></div>
+        <div class="art-building art-building-back"></div>
+        <div class="art-building art-building-front">
+          <span></span><span></span><span></span><span></span><span></span><span></span>
+        </div>
+        <div class="art-ground"></div>
+        <div class="art-note"><span class="note-check">✓</span> Sua próxima etapa começa agora</div>
+      </div>
+
+      <p class="panel-footer">Do alicerce ao acabamento, conte com a Obraê.</p>
+    </aside>
+
+    <section class="form-panel" aria-labelledby="form-title">
+      <div class="form-top">
+        <a class="mobile-brand" href="index.html" aria-label="Obraê — página inicial">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="m3.5 10 8.5-7 8.5 7v10.5h-17V10Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+              <path d="M9 20.5v-7h6v7M2 10.5l10-8 10 8" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <span>obraê</span>
+        </a>
+        <span class="account-type"><span></span> Conta de cliente</span>
+      </div>
+
+      <div class="form-content register-content">
+        <a class="back-link" href="index.html"><span aria-hidden="true">←</span> Voltar à loja</a>
+        <div class="heading">
+          <span class="form-kicker">Vamos começar</span>
+          <h2 id="form-title">Crie sua conta</h2>
+          <p>Preencha seus dados para fazer parte da Obraê.</p>
+        </div>
+
+        <form class="auth-form" id="register-form" novalidate>
+          <label for="register-name">Nome completo</label>
+          <div class="input-wrap">
+            <svg class="field-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <circle cx="12" cy="8" r="3.5" stroke="currentColor" stroke-width="1.7"/>
+              <path d="M4.5 20a7.5 7.5 0 0 1 15 0" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+            </svg>
+            <input id="register-name" name="nome" type="text" placeholder="Como podemos te chamar?" autocomplete="name" required>
+          </div>
+
+          <label for="register-email">E-mail</label>
+          <div class="input-wrap">
+            <svg class="field-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <rect x="3" y="5" width="18" height="14" rx="3" stroke="currentColor" stroke-width="1.7"/>
+              <path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <input id="register-email" name="email" type="email" placeholder="voce@email.com" autocomplete="email" required>
+          </div>
+
+          <label for="register-phone">Telefone</label>
+          <div class="input-wrap">
+            <svg class="field-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M7.2 3.5h3l1.5 4-2 1.8a15 15 0 0 0 5 5l1.8-2 4 1.5v3c0 1.1-.9 2-2 2A15.5 15.5 0 0 1 5.2 5.5c0-1.1.9-2 2-2Z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <input id="register-phone" name="telefone" type="tel" placeholder="(11) 99999-9999" autocomplete="tel" required>
+          </div>
+
+          <div class="password-grid">
+            <div class="password-field">
+              <label for="register-password">Senha</label>
+              <div class="input-wrap">
+                <svg class="field-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <rect x="4" y="10" width="16" height="11" rx="2.5" stroke="currentColor" stroke-width="1.7"/>
+                  <path d="M8 10V7a4 4 0 1 1 8 0v3m-4 4v3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+                </svg>
+                <input id="register-password" name="senha" type="password" placeholder="Mínimo de 8 caracteres" autocomplete="new-password" minlength="8" required>
+                <button class="password-toggle" type="button" data-toggle-password="register-password" aria-label="Mostrar senha" aria-pressed="false">
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M2.5 12s3.4-6 9.5-6 9.5 6 9.5 6-3.4 6-9.5 6-9.5-6-9.5-6Z" stroke="currentColor" stroke-width="1.7"/>
+                    <circle cx="12" cy="12" r="2.5" stroke="currentColor" stroke-width="1.7"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="password-field">
+              <label for="register-confirm-password">Confirmar senha</label>
+              <div class="input-wrap">
+                <svg class="field-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <rect x="4" y="10" width="16" height="11" rx="2.5" stroke="currentColor" stroke-width="1.7"/>
+                  <path d="M8 10V7a4 4 0 1 1 8 0v3m-4 4v3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+                </svg>
+                <input id="register-confirm-password" name="confirmar_senha" type="password" placeholder="Repita sua senha" autocomplete="new-password" minlength="8" required>
+              </div>
+            </div>
+          </div>
+
+          <label class="check-option terms-option" for="accept-terms">
+            <input id="accept-terms" name="aceita_termos" type="checkbox" required>
+            <span class="custom-check" aria-hidden="true"></span>
+            <span>Li e aceito os termos de uso e a política de privacidade.</span>
+          </label>
+
+          <button class="submit-button" type="button" data-auth-submit="register-form">
+            Criar minha conta <span aria-hidden="true">→</span>
+          </button>
+          <p class="form-message" id="register-message" role="status" aria-live="polite"></p>
+        </form>
+
+        <p class="switch-page">Já tem uma conta? <a href="login.html">Entrar</a></p>
+        <p class="switch-page">É lojista? <a href="loja-cadastro.html">Cadastrar loja</a></p>
+        <p class="secure-note"><span aria-hidden="true">◇</span> Demonstração: conta salva apenas neste navegador.</p>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

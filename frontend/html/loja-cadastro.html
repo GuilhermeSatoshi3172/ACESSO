@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#202b26">
+  <meta name="description" content="Cadastre sua loja para fazer parte da Obraê.">
+  <title>Cadastro de lojista — Obraê</title>
+  <link rel="stylesheet" href="../css/auth.css">
+  <script src="../js/auth.js" defer></script>
+</head>
+<body>
+  <main class="auth-layout">
+    <aside class="brand-panel">
+      <a class="brand" href="index.html" aria-label="Obraê — página inicial">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M3 10h18l-2-6H5l-2 6Zm1 0v10h16V10M8 20v-6h8v6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M3 10c0 1.1.9 2 2 2s2-.9 2-2c0 1.1.9 2 2 2s2-.9 2-2c0 1.1.9 2 2 2s2-.9 2-2c0 1.1.9 2 2 2s2-.9 2-2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <span>obraê</span>
+      </a>
+
+      <div class="brand-copy">
+        <span class="eyebrow"><span class="eyebrow-dot"></span> Seja uma loja parceira</span>
+        <h1>Mais oportunidades para a sua loja.</h1>
+        <p>Cadastre seus dados para começar a conectar seus produtos a quem está construindo.</p>
+      </div>
+
+      <div class="artwork" aria-hidden="true">
+        <div class="art-sun"></div>
+        <div class="art-building art-building-back"></div>
+        <div class="art-building art-building-front">
+          <span></span><span></span><span></span><span></span><span></span><span></span>
+        </div>
+        <div class="art-ground"></div>
+        <div class="art-note"><span class="note-check">✓</span> Sua loja, pronta para avançar</div>
+      </div>
+
+      <p class="panel-footer">Obraê — do alicerce ao acabamento.</p>
+    </aside>
+
+    <section class="form-panel" aria-labelledby="form-title">
+      <div class="form-top">
+        <a class="mobile-brand" href="index.html" aria-label="Obraê — página inicial">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M3 10h18l-2-6H5l-2 6Zm1 0v10h16V10M8 20v-6h8v6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M3 10c0 1.1.9 2 2 2s2-.9 2-2c0 1.1.9 2 2 2s2-.9 2-2c0 1.1.9 2 2 2s2-.9 2-2c0 1.1.9 2 2 2s2-.9 2-2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <span>obraê</span>
+        </a>
+        <span class="account-type"><span></span> Cadastro de loja</span>
+      </div>
+
+      <div class="form-content register-content shop-register-content">
+        <a class="back-link" href="index.html"><span aria-hidden="true">←</span> Voltar à loja</a>
+        <div class="heading">
+          <span class="form-kicker">Vamos começar</span>
+          <h2 id="form-title">Cadastre sua loja</h2>
+          <p>Informe os dados da loja e crie uma senha de acesso.</p>
+        </div>
+
+        <form class="auth-form shop-register-form" id="shop-register-form" novalidate>
+          <label for="shop-register-name">Nome da loja</label>
+          <div class="input-wrap">
+            <svg class="field-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M3 10h18l-2-6H5l-2 6Zm1 0v10h16V10M8 20v-6h8v6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <input id="shop-register-name" name="nome_loja" type="text" placeholder="Nome da sua loja" autocomplete="organization" required>
+          </div>
+
+          <label for="shop-register-email">E-mail do lojista</label>
+          <div class="input-wrap">
+            <svg class="field-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <rect x="3" y="5" width="18" height="14" rx="3" stroke="currentColor" stroke-width="1.7"/>
+              <path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <input id="shop-register-email" name="email" type="email" placeholder="loja@email.com" autocomplete="email" required>
+          </div>
+
+          <div class="field-grid">
+            <div class="field-group">
+              <label for="shop-register-phone">Telefone de contato</label>
+              <div class="input-wrap">
+                <input id="shop-register-phone" name="telefone" type="tel" placeholder="(11) 99999-9999" autocomplete="tel" required>
+              </div>
+            </div>
+            <div class="field-group">
+              <label for="shop-register-cnpj">CNPJ</label>
+              <div class="input-wrap">
+                <input id="shop-register-cnpj" name="cnpj" type="text" inputmode="numeric" placeholder="00.000.000/0000-00" maxlength="18" pattern="([0-9]{14}|[0-9]{2}\.[0-9]{3}\.[0-9]{3}/[0-9]{4}-[0-9]{2})" autocomplete="off" required>
+              </div>
+            </div>
+          </div>
+
+          <label for="shop-register-street">Rua</label>
+          <div class="input-wrap">
+            <input id="shop-register-street" name="rua" type="text" placeholder="Nome da rua" autocomplete="address-line1" required>
+          </div>
+
+          <div class="field-grid">
+            <div class="field-group">
+              <label for="shop-register-address-number">Número do endereço</label>
+              <div class="input-wrap">
+                <input id="shop-register-address-number" name="numero_endereco" type="text" placeholder="Número" autocomplete="address-line2" required>
+              </div>
+            </div>
+            <div class="field-group">
+              <label for="shop-register-cep">CEP</label>
+              <div class="input-wrap">
+                <input id="shop-register-cep" name="cep" type="text" inputmode="numeric" placeholder="00000-000" maxlength="9" pattern="([0-9]{8}|[0-9]{5}-[0-9]{3})" autocomplete="postal-code" required>
+              </div>
+            </div>
+          </div>
+
+          <div class="field-grid">
+            <div class="field-group">
+              <label for="shop-register-city">Cidade</label>
+              <div class="input-wrap">
+                <input id="shop-register-city" name="cidade" type="text" placeholder="Sua cidade" autocomplete="address-level2" required>
+              </div>
+            </div>
+            <div class="field-group">
+              <label for="shop-register-state">Estado (UF)</label>
+              <div class="input-wrap">
+                <input id="shop-register-state" name="estado" type="text" placeholder="SP" maxlength="2" pattern="[A-Za-z]{2}" autocomplete="address-level1" required>
+              </div>
+            </div>
+          </div>
+
+          <div class="password-grid">
+            <div class="password-field">
+              <label for="shop-register-password">Senha</label>
+              <div class="input-wrap">
+                <input id="shop-register-password" name="senha" type="password" placeholder="Mínimo de 8 caracteres" autocomplete="new-password" minlength="8" required>
+                <button class="password-toggle" type="button" data-toggle-password="shop-register-password" aria-label="Mostrar senha" aria-pressed="false">
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M2.5 12s3.4-6 9.5-6 9.5 6 9.5 6-3.4 6-9.5 6-9.5-6-9.5-6Z" stroke="currentColor" stroke-width="1.7"/>
+                    <circle cx="12" cy="12" r="2.5" stroke="currentColor" stroke-width="1.7"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="password-field">
+              <label for="shop-register-confirm-password">Confirmar senha</label>
+              <div class="input-wrap">
+                <input id="shop-register-confirm-password" name="confirmar_senha" type="password" placeholder="Repita sua senha" autocomplete="new-password" minlength="8" required>
+              </div>
+            </div>
+          </div>
+
+          <button class="submit-button" type="button" data-auth-submit="shop-register-form">
+            Cadastrar loja <span aria-hidden="true">→</span>
+          </button>
+          <p class="form-message" id="shop-register-message" role="status" aria-live="polite"></p>
+        </form>
+
+        <p class="switch-page">Já tem uma conta de lojista? <a href="loja-login.html">Entrar</a></p>
+        <p class="switch-page"><a href="cadastro.html">Cadastro para clientes</a></p>
+        <p class="secure-note"><span aria-hidden="true">◇</span> Demonstração: conta salva apenas neste navegador.</p>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
